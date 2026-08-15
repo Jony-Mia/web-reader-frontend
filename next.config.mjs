@@ -1,0 +1,25 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  /* config options here */
+  reactCompiler: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn-icons-png.flaticon.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
+    ],
+}
+};
+
+export default nextConfig;
