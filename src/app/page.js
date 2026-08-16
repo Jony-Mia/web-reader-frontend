@@ -8,6 +8,8 @@ import TestimonialsSection from "../sections/TestimonialsSection";
 import WhyChooseSection from "../sections/WhyChooseSection";
 
 export default function Home() {
+    console.log(process.env.NEXT_PUBLIC_TEST);
+    
     return (
         <>
             <Hero />
