@@ -8,6 +8,7 @@ import { useState } from "react";
 
 const plans = [
   {
+    id: 'basic_free',
     name: 'Basic',
     price: '$0',
     period: '/mo',
@@ -21,6 +22,7 @@ const plans = [
     variant: 'outline',
   },
   {
+    id: "standard_month",
     name: 'Pro',
     price: '$9.99',
     period: '/mo',
@@ -36,6 +38,7 @@ const plans = [
     variant: 'default',
   },
   {
+    id:"premium_family",
     name: 'Family',
     price: '$19.99',
     period: '/mo',
@@ -76,7 +79,7 @@ export default function PricingSection() {
       id: "standard",
       name: "Standard",
       priceMonthly: "$12",
-      priceAnnual: "$9",
+      priceAnnual: "$28.8",
       periodMonthly: "/mo",
       periodAnnual: "/y",
       description: "Uninterrupted focus for dedicated knowledge workers.",
@@ -94,8 +97,8 @@ export default function PricingSection() {
       id: "premium",
       name: "Premium",
       priceMonthly: "$29",
-      priceAnnual: "$23",
-      periodMonthly: "/mo",
+      priceAnnual: "$69.6",
+      periodMonthly: "/3mo",
       periodAnnual: "/y",
       description: "The ultimate cognitive toolkit for research and synthesis.",
       isPopular: false,
@@ -255,13 +258,13 @@ export default function PricingSection() {
                 </div>
 
                 {/* Action Button */}
-                <form >
+                {/* <form >
                   <section>
                     <button type="submit" role="link">
                       Checkout
                     </button>
                   </section>
-                </form>
+                </form> */}
 
                 <form action="/api/checkout_sessions" method="POST" className="pt-8 mt-auto">
                   {tier.buttonVariant === "solid" ? (

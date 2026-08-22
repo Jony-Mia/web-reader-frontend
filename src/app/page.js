@@ -1,6 +1,7 @@
+import Jumbotron from "@/sections/Reoder";
 import Box from "../sections/Box";
 import BrowseCategorySection from "../sections/BrowseCategorySection";
-import Draft from "../sections/Draft";
+
 import FeaturedBooksSection from "../sections/FeaturedBooksSection";
 import Hero from "../sections/Hero";
 import PricingSection from "../sections/PricingSection";
@@ -13,13 +14,14 @@ export default function Home() {
     return (
         <>
             <Hero />
-            {/* <Box /> */}
-            <WhyChooseSection />
-            <FeaturedBooksSection />
             <BrowseCategorySection />
+            <FeaturedBooksSection />
+            <WhyChooseSection />
+            
             <TestimonialsSection />
+            <Box />
             <PricingSection />
-
+            <Jumbotron/>
         </>
     )
 }
