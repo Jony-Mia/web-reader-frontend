@@ -258,7 +258,7 @@ export default function FeaturedBooksSlider() {
                 </div>
 
                 {/* Motion Slider Wrapper */}
-                <div className="relative overflow-hidden" ref={containerRef}>
+                <div className="relative overflow-x-scroll overflow-y-hidden scrollbar-none" ref={containerRef}>
                     <motion.div
                         className="flex gap-5"
                         animate={{ x: `-${currentIndex * (100 / cardsToShow)}%` }}

@@ -1,15 +1,15 @@
 'use client';
 
 import React, { useState } from 'react';
-import { 
-  BookOpen, 
-  User, 
-  Mail, 
-  Lock, 
-  RotateCcw, 
-  ArrowRight, 
-  Eye, 
-  EyeOff 
+import {
+  BookOpen,
+  User,
+  Mail,
+  Lock,
+  RotateCcw,
+  ArrowRight,
+  Eye,
+  EyeOff
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -17,6 +17,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Apple, GoogleIcon } from '@dev.icons/react';
 import Image from 'next/image';
+import SubmitForm from '@/lib/SubmitForm';
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -36,26 +37,27 @@ export default function RegisterPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.agreed) {return}
-    else{
-      if(formData.email!=="" || formData.fullName!=="" || formData.confirmPassword!=="" || formData.password!==""){
-        if (formData.password!==formData.confirmPassword) {
+    if (!formData.agreed) { return }
+    else {
+      if (formData.email !== "" || formData.fullName !== "" || formData.confirmPassword !== "" || formData.password !== "") {
+        if (formData.password !== formData.confirmPassword) {
+          
+          
           setPsError(true);
           return;
         }else{
-              console.log(formData);
-          }
-        
+          SubmitForm(formData)
+          console.log(formData);
+        }
       }
     }
-    
+
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
     }, 500);
-
   };
 
   return (
@@ -91,7 +93,7 @@ export default function RegisterPage() {
       {/* Right Form Section */}
       <div className="w-full md:w-7/12 lg:w-8/12 bg-[#f2f9ff] flex items-center justify-center p-6 sm:p-10 lg:p-16 min-h-[calc(100vh-360px)] md:min-h-screen">
         <div className="w-full max-w-md space-y-8">
-          
+
           {/* Form Header */}
           <div className="space-y-2">
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
@@ -109,7 +111,7 @@ export default function RegisterPage() {
               variant="outline"
               className="h-11 bg-white hover:cursor-pointer hover:bg-slate-50 border-slate-200 text-slate-700 font-medium rounded-xl shadow-sm transition-all"
             >
-              <GoogleIcon/>
+              <GoogleIcon />
               <span>Google</span>
             </Button>
 
@@ -118,7 +120,7 @@ export default function RegisterPage() {
               variant="outline"
               className="h-11 bg-white hover:cursor-pointer hover:bg-slate-50 border-slate-200 text-slate-700 font-medium rounded-xl shadow-sm transition-all"
             >
-              <Apple/>
+              <Apple />
               <span>Apple</span>
             </Button>
           </div>
@@ -187,7 +189,7 @@ export default function RegisterPage() {
                     value={formData.password}
                     onChange={handleChange}
                     required
-                    
+
                     className={` ${pError && "border-red-600 "} pl-10 pr-10 h-11 bg-white border-slate-200 focus-visible:ring-[#024968] focus-visible:border-[#024968] rounded-xl text-slate-800 placeholder:text-slate-400 shadow-sm`}
                   />
                   <button
